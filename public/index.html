@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="UTF-8" name="description" content="">
+        <title>Online Bid</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- angular dependencies -->
+        <script src="angular/angular.js"></script>
+        <script src="angular-animate/angular-animate.js"></script>
+        <script src="angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="angular-cookies/angular-cookies.js"></script>
+        <script src="angular-route/angular-route.js"></script>
+    <!-- files located within this project -->
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <script src="./assets/config/app.js"></script>
+        <script src="./assets/config/routes.js"></script>
+        <script src="./assets/controllers/OneController.js"></script>
+        <script src="./assets/controllers/TwoController.js"></script>
+        <script src="./assets/factories/oneFactory.js"></script>
+        <script src="./assets/factories/twoFactory.js"></script>
+    </head>
+    <body>
+        <div class="container">
+
+            <div ng-view="">
+                <!-- this is where the partials will show -->
+            </div>
+
+        </div>
+    </body>
+</html>
