@@ -1,3 +1,86 @@
-<section>
-    <p>index page</p>
+<header class="page-header">
+    <h1>HEADER <small> SMALL WORDS</small></h1>
+</header>
+
+<section class="row">
+    <div ng-repeat="alert in alerts">
+        <div class="alert alert-danger">
+            {{ alert }}
+        </div>
+    </div>
+</section>
+
+<section class="row">
+    <article class="col-md-5">
+    <!-- registration form -->
+        <h3 class="login">Register</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-3">First Name:</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" ng-model="newUser.first_name">
+                </div>
+            <!-- </div> -->
+            <!-- <div class="form-group">
+                <label class="col-md-3">Last Name:</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" ng-model="newUser.last_name">
+                </div>
+            </div> -->
+            <!-- <div class="form-group">
+                <label class="col-md-3">Email:</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="email" ng-model="newUser.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3">Birthday:</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="date" ng-model="newUser.dob">
+                </div>
+            </div> -->
+            <!-- <div class="form-group">
+                <label class="col-md-3">Password:</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" ng-model="newUser.password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3">Confirm:</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" ng-model="newUser.confirm">
+                </div> -->
+                <div class="col-md-2">
+                    <input class="btn btn-primary" type="submit" value="Register" ng-click="create()">
+                </div>
+            </div>
+        </form>
+    </article>
+
+    <article class="col-md-5 col-md-offset-1">
+        <h3 class="login">Login</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-3">First Name:</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" ng-model="user.first_name">
+                </div>
+            <!-- </div> -->
+            <!-- <div class="form-group">
+                <label class="col-md-3">Email:</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" ng-model="user.email">
+                </div>
+            </div> -->
+            <!-- <div class="form-group">
+                <label class="col-md-3">Password:</label>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" ng-model="user.password">
+                </div> -->
+                <div class="col-md-1">
+                    <input class="btn btn-primary" type="submit" value="Login" ng-click="login()">
+                </div>
+            </div>
+        </form>
+    </article>
 </section>

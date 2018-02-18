@@ -2,17 +2,17 @@ console.log('conneciton to server-side routes successful');
 
 const path = require('path');
 
-// const bids = require('../controllers/bids.js');
-// const products = require('../controllers/products.js');
+const users = require('../controllers/users.js');
+// const twos = require('../controllers/twos.js');
 
 module.exports = function(app){
-    // app.get('/bids', bids.index);
-    // app.post('/bids', bids.create);
-    // app.delete('/bids', bids.delete);
-    //
-    // app.get('/products', products.index);
-    // app.post('/products', products.create);
-    // app.delete('/products', products.delete);
+    app.get('/users', users.index);
+    app.post('/users', users.create);
+    // app.delete('/users', users.delete);
+
+    // app.get('/twos', twos.index);
+    // app.post('/twos', twos.create);
+    // app.delete('/twos', twos.delete);
 
 
     app.all("*", (request, response, next) =>{
@@ -20,4 +20,3 @@ module.exports = function(app){
     })
 
 }; // close export
- 

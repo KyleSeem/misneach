@@ -1,20 +1,20 @@
 
-myApp.controller('XsController', ['$scope', 'xFactory', '$cookies', '$location', function($scope, xFactory, $cookies, $location){
+myApp.controller('TwosController', ['$scope', 'twoFactory', '$cookies', '$location', function($scope, twoFactory, $cookies, $location){
     $scope.sessionUser = $cookies.getObject('thisUser');
-    $scope.xs = [];
+    $scope.twos = [];
 
 
-    // get all xs from db
+    // get all twos from db
     $scope.getXs = function(){
-        xFactory.index(function(response){
-            $scope.xs = response;
+        twoFactory.index(function(response){
+            $scope.twos = response;
         })
     }
 
 
-    // create new x
+    // create new two
     $scope.create = function(){
-        xFactory.create(function(response){
+        twoFactory.create(function(response){
             console.log(response);
 
         })
@@ -23,4 +23,4 @@ myApp.controller('XsController', ['$scope', 'xFactory', '$cookies', '$location',
 
 
 
-}]); // close XsController
+}]); // close TwosController

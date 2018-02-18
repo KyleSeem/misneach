@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
-const X = mongoose.model('X');
+const Users = mongoose.model('Users');
 
 module.exports = {
 
-    // get all x
+    // get all users
     index: (request, response) => {
-        X.find({})
-        .then(function(x){
-            response.json(x);
+        Users.find({})
+        .then(function(users){
+            response.json(users);
         })
         .catch(function(error){
             response.send(error);
@@ -15,12 +15,12 @@ module.exports = {
     },
 
 
-    // create new x
+    // create new user
     create: (request, response) => {
-        X.create(request.body)
-        .then(function(x){
-            console.log(x);
-            response.json(x);
+        Users.create(request.body)
+        .then(function(user){
+            console.log(user);
+            response.json(user);
         })
         .catch(function(error){
             response.send(error);

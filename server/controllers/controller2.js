@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
-const X = mongoose.model('X');
+const Twos = mongoose.model('Twos');
 
-module.exports = {
+module.etwoports = {
 
-    // get all x
+    // get all twos
     index: (request, response) => {
-        X.find({})
-        .then(function(x){
-            response.json(x);
+        Twos.find({})
+        .then(function(twos){
+            response.json(twos);
         })
         .catch(function(error){
             response.send(error);
@@ -15,12 +15,12 @@ module.exports = {
     },
 
 
-    // create new x
+    // create new two
     create: (request, response) => {
-        X.create(request.body)
-        .then(function(x){
-            console.log(x);
-            response.json(x);
+        Twos.create(request.body)
+        .then(function(two){
+            console.log(two);
+            response.json(two);
         })
         .catch(function(error){
             response.send(error);

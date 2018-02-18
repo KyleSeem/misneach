@@ -1,10 +1,10 @@
 
-myApp.factory('xFactory', ['$http', function($http){
+myApp.factory('userFactory', ['$http', function($http){
     const factory = {};
 
-    // get all x
+    // get all users
     factory.index = function(callback){
-        $http.get('/xs')
+        $http.get('/users')
         .then(function(response){
             callback(response.data);
         })
@@ -13,9 +13,9 @@ myApp.factory('xFactory', ['$http', function($http){
         })
     }
 
-    // create new x
-    factory.create = function(newx, callback){
-        $http.post('/x', newx)
+    // create new user
+    factory.create = function(newUser, callback){
+        $http.post('/users', newUser)
         .then(function(response){
             callback(response.data);
         })
