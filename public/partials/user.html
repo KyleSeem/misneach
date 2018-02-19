@@ -1,0 +1,39 @@
+
+<nav>
+    <!-- <a href="#!/bucket/user/{{ sessionUser._id }}">My Bucket List</a> | -->
+    <a href="#!/dashboard">Home</a> |
+    <a ng-click="logout()">Logout</a>
+</nav>
+
+<header class="page-header">
+    <h1>{{ user.name }}'s Bucket List</h1>
+</header>
+
+<section ng-init="show()">
+    <h3>Completed</h3>
+    <div ng-repeat="item in user.bucket">
+        <div ng-show="item.status === 1">
+            <p>
+                <i class="glyphicon glyphicon-check"></i>
+                {{ item.creator }}: {{ item.title }} - {{ item.description }}... - {{ item.created_at | date: 'MMM dd, yyyy' }}
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<section ng-init="show()">
+    <h3>Pending</h3>
+    <div ng-repeat="item in user.bucket">
+        <div ng-show="item.status === 0">
+            <p>
+                <span ng-show="user.name === sessionUser.name">
+                    <i class="glyphicon glyphicon-unchecked" role="button" ng-click="completed()"></i>
+                </span>
+                <span ng-show="user.name === !sessionUser.name">
+                    <i class="glyphicon glyphicon-unchecked"></i>
+                </span>
+                {{ item.creator }}: {{ item.title }} - {{ item.description }}... - {{ item.created_at | date: 'MMM dd, yyyy' }}</p>
+        </div>
+    </div>
+</section>

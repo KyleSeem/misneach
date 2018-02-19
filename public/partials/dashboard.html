@@ -1,16 +1,82 @@
-<header class="page-header">
-    <h1 class="col-md-10">HI! <small> you made it to the page!</small></h1>
-    <nav>
-        <a href="#!/dashboard">Dashboard</a> |
-        <a ng-click="logout()">Logout</a>
-    </nav>
+<div ng-init="getUsers()"></div>
+<nav>
+    <!-- <a href="#!/bucket/user/{{ sessionUser._id }}">My Bucket List</a> | -->
+    <a href="#!/dashboard">Home</a> |
+    <a ng-click="logout()">Logout</a>
+</nav>
+
+<header class="page-header" ng-controller="UsersController as uc">
+    <h1>Welcome, {{ sessionUser.name }}!</h1>
 </header>
 
+<!-- add new list item section -->
+<section>
+<!-- <section ng-controller="GoalsController as gc"> -->
+    <div class="row">
+        <div class="col-md-6" ng-if="alerts.length > 0">
+            <div class="alert alert-danger">
+                <div ng-repeat="alert in alerts">
+                    {{ alert }}
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <h4>Add a new bucket list item</h4>
+    <form class="form-inline">
+        <div class="form-group">
+            <!-- <div class="col-md-8"> -->
+                <input class="form-control" type="text" placeholder="Title" ng-model="newGoal.title" required>
+            <!-- </div> -->
+        </div>
+        <div class="form-group">
+            <!-- <div class="col-md-8"> -->
+                <input class="form-control" type="text" placeholder="Description" ng-model="newGoal.description" required>
+            <!-- </div> -->
+        </div>
+        <div class="form-group">
+            <!-- <div class="col-md-2"> -->
+                <select class="form-control" name="tagUser" ng-model="newGoal.tagUser">
+                    <option value="">select</option>
+                    <option ng-repeat="user in users" value="{{ user.name }}">{{ user.name }}</option>
+                </select>
+            <!-- </div> -->
+        </div>
+        <div class="form-group">
+            <!-- <div class="col-md-11"> -->
+                <input class="btn btn-primary" type="submit" value="Submit" ng-click="create()">
+            <!-- </div> -->
+        </div>
+    </form>
+</section>
+
+<!-- session user's bucket list section -->
 <section ng-init="getUsers()">
+    <h4>Before I die, I want to...</h4>
+    <div ng-repeat="user in users">
+        <div ng-show="user.name === sessionUser.name">
+            <div ng-controller="UsersController as bucket">
+                <div ng-repeat="item in user.bucket">
+                    <div style="font-size:1.25em;">
+                        <span ng-show="item.status == 0">
+                            <i class="glyphicon glyphicon-unchecked" role="button" ng-click="completed(item)"></i>
+                        </span>
+                        <span ng-show="item.status == 1">
+                            <i class="glyphicon glyphicon-check"></i>
+                        </span>
+                        {{ item.creator }}: {{ item.title }} - {{ item.description }}... - {{ item.created_at | date: 'MMM dd, yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <h4>Users</h4>
-    <ul ng-repeat="user in users">
-        <li>{{ user.first_name }}</li>
-    </ul>
+<!-- other users' bucket list section -->
+<section>
+    <h4>Other bucket lists (click to view profile):</h4>
+    <div ng-repeat="user in users">
+        <a href="" ng-click="fetchUser(user._id)">{{ user.name }}</a>
+        <!-- <a href="#!/bucket/user/{{ user._id }}">{{ user.name }}</a> -->
+    </div>
 </section>

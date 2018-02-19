@@ -3,16 +3,17 @@ console.log('conneciton to server-side routes successful');
 const path = require('path');
 
 const users = require('../controllers/users.js');
-// const twos = require('../controllers/twos.js');
+const goals = require('../controllers/goals.js');
 
 module.exports = function(app){
     app.get('/users', users.index);
     app.post('/users', users.create);
-    // app.delete('/users', users.delete);
+    app.post('/findUser', users.find);
+    app.get('/users/:id', users.show);
+    app.post('/users/status', users.status);
 
-    // app.get('/twos', twos.index);
-    // app.post('/twos', twos.create);
-    // app.delete('/twos', twos.delete);
+    app.get('/goals', goals.index);
+    app.post('/goals', goals.create);
 
 
     app.all("*", (request, response, next) =>{

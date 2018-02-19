@@ -7,6 +7,10 @@ myApp.config(function($routeProvider){
     .when('/dashboard', {
         templateUrl: '../partials/dashboard.html',
         controller: 'UsersController',
+    }).
+    when('/bucket/user/:id', {
+        templateUrl: '../partials/user.html',
+        controller: 'UsersController',
     })
     .otherwise({
         redirectTo: '/login',
